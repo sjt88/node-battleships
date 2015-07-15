@@ -1,7 +1,7 @@
 var util = require('util');
 var events = require('events');
 
-var Human = require('./Human');
+var Human = require('./lib/Human');
 var Ai = require('./lib/SimpleAi');
 
 // Main game object
