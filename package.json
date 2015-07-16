@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/sjt88/node-battleships/issues"
   },
-  "homepage": "https://github.com/sjt88/node-battleships#readme"
+  "homepage": "https://github.com/sjt88/node-battleships#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1"
+  }
 }
