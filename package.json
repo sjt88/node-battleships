@@ -1,0 +1,24 @@
+{
+  "name": "node-battleships",
+  "version": "1.0.0",
+  "description": "Play battleships in the terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjt88/node-battleships.git"
+  },
+  "keywords": [
+    "battleships",
+    "node-battleships",
+    "game"
+  ],
+  "author": "sjt88",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjt88/node-battleships/issues"
+  },
+  "homepage": "https://github.com/sjt88/node-battleships#readme"
+}
