@@ -49,11 +49,11 @@ function Game(cfg) {
       game.turnCount++;
       game.turn();
     }
-  }
+  };
 
   this.start = function() {
     this.turn();
-  }
+  };
 
 }
 util.inherits(Game, events.EventEmitter);
@@ -74,5 +74,5 @@ var battleship = new Game({
   x: 10,
   y: 10
 });
-console.log('--BATTLESHIPS--')
+console.log('--BATTLESHIPS--');
 battleship.start();
