@@ -25,8 +25,6 @@ describe('Board', function() {
     board = new Board(cfg);
   });
 
-
-
   describe('#generateCoords', function (){
     var coordinates;
 
@@ -138,26 +136,33 @@ describe('Board', function() {
   });
 
   describe('#placeShip', function() {
+    beforeEach(function() {
+      var shipLength = 5;
+      var shipType = 'testship';
+      var shipId = 0;
+      board.placeShip(shipLength, shipType, shipId);
+    });
+
     it('should place a ship on the board', function() {
+      
+    });
+
+    xit('should place a ship horizontally or vertically', function() {
 
     });
 
-    it('should place a ship horizontally or vertically', function() {
+    xit('should only place a ship in a valid location', function() {
 
     });
 
-    it('should only place a ship in a valid location', function() {
-
-    });
-
-    it('should update the number of ships added to the board', function() {
+    xit('should update the number of ships added to the board', function() {
 
     });
 
   });
 
-  describe('#getArrayFromDirection', function() {
-    it('should return all board square data in a given direction', function() {
+  xdescribe('#getArrayFromDirection', function() {
+    xit('should return all board square data in a given direction', function() {
 
     });
   });
