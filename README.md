@@ -1,6 +1,7 @@
-# battleships
+# node-battleships
 
-A simple game of battleships played against a computer in the terminal
+A simple game of battleships written in played against a computer.
+Written in node.js - played in the terminal.
 
 *****
 ### Install & run
