@@ -67,48 +67,74 @@ describe('Board', function() {
     var attack, coord;
 
     beforeEach(function() {
+      board.setup();
       coord = [0,0];
-      attack = board.attack(coord);
     });
 
     it('should return an object', function() {
+      attack = board.attack(coord);
       expect(typeof attack).toBe('object');
     });
 
-    describe('when a shot is a hit', function() {
-      describe('the returned object', function() {
-        it('should notify of the hit', function() {
+    it('should notify the caller if coordinates have been shot at before', function() {
+      board.grid[0][0].shot = true;
+      attack = board.attack(coord);
+      expect(attack.valid).toBe(false);
+    });
 
-        });
+    describe('when a shot hits a ship', function() {
 
-        it('should notify if a ship has been sunk', function() {
-
-        });
-
-        it('should update the board with the hit', function() {
-
-        });
-
+      beforeEach(function() {
+        board.setup();
+        coord = [0,0];
+        board.grid[0][0].shipId = 0;
+        board.grid[0][0].contents = true;
       });
+
+      it('should be able to notify the caller of the hit', function() {
+        attack = board.attack(coord);
+        expect(attack.hit).toBe(true);
+      });
+
+      it('should update the board with the hit', function() {
+        attack = board.attack(coord);
+        expect(board.grid[0][0].shot).toBe(true);
+      });
+
+      it('should reduce that ships number of lives by 1', function() {
+        var initialLives = board.ships.byId[0].lives = 5;
+        attack = board.attack(coord);
+        var updatedLives = board.ships.byId[0].lives;
+        expect(updatedLives).toBe(4);
+      });
+
+      it('should notify the caller if a ship was sunk and its type', function() {
+        board.ships.byId[0].type = 'testship';
+        board.ships.byId[0].lives = 1;
+
+        attack = board.attack(coord);
+        expect(typeof attack.destroyed).toBe('boolean');
+        expect(attack.destroyed).toBe(true);
+        expect(typeof attack.shipType).toBe('string');
+        expect(attack.shipType).toBe('testship');
+      });
+
     });
 
     describe('when a shot is a miss', function() {
-      describe('the returned object', function() {
-        it('should notify of the miss', function() {
-
-        });
-      })
-    });
-
-    describe('when shooting a previously hit coordinate', function() {
-      describe('the returned object', function() {
-        it('should notify these coordinates aren not valid', function() {
-
-        });
+      beforeEach(function() {
+        board.setup();
+        coord = [0,0];
+        board.grid[0][0].contents = false;
       });
+
+      it('should notify the caller of the miss', function() {
+        attack = board.attack(coord);
+        expect(typeof attack.hit).toBe('boolean');
+        expect(attack.hit).toBe(false);
+      });
+
     });
-
-
   });
 
   describe('#placeShip', function() {
