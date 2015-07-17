@@ -34,7 +34,7 @@ describe('Board', function() {
       coordinates = board.randomCoord();
     });
 
-    it('should return an array containing two elements', function() {
+    it('should return X and Y coordinates', function() {
       expect( Array.isArray(coordinates) ).toBe(true);
       expect( coordinates.length ).toBe(2);
     });
@@ -43,7 +43,7 @@ describe('Board', function() {
 
       [0,1].forEach(function(key) {
 
-        it('should be numbers', function() {
+        it('should be whole numbers', function() {
           expect(typeof coordinates[key]).toBe('number');
         });
 
@@ -52,7 +52,7 @@ describe('Board', function() {
           expect(coordinates[key]).not.toBeLessThan(0);
         });
 
-        it('should be less than cfg.x and cfg.y', function() {
+        it('should be less than the maximum width/length of the board', function() {
           spyOn(Math, "random").and.returnValue(10);
           expect(coordinates[key]).not.toBeGreaterThan(cfg.x);
           expect(coordinates[key]).not.toBeGreaterThan(cfg.y);
@@ -63,7 +63,7 @@ describe('Board', function() {
     });
   });
 
-  xdescribe('#attack', function() {
+  describe('#attack', function() {
     var attack, coord;
 
     beforeEach(function() {
@@ -75,16 +75,65 @@ describe('Board', function() {
       expect(typeof attack).toBe('object');
     });
 
-    describe('when a shot hits', function() {
+    describe('when a shot is a hit', function() {
+      describe('the returned object', function() {
+        it('should notify of the hit', function() {
 
-      beforeEach(function() {
+        });
+
+        it('should notify if a ship has been sunk', function() {
+
+        });
+
+        it('should update the board with the hit', function() {
+
+        });
 
       });
+    });
+
+    describe('when a shot is a miss', function() {
+      describe('the returned object', function() {
+        it('should notify of the miss', function() {
+
+        });
+      })
+    });
+
+    describe('when shooting a previously hit coordinate', function() {
+      describe('the returned object', function() {
+        it('should notify these coordinates aren not valid', function() {
+
+        });
+      });
+    });
+
+
+  });
+
+  describe('#placeShip', function() {
+    it('should place a ship on the board', function() {
+
+    });
+
+    it('should place a ship horizontally or vertically', function() {
+
+    });
+
+    it('should only place a ship in a valid location', function() {
+
+    });
+
+    it('should update the number of ships added to the board', function() {
 
     });
 
   });
 
+  describe('#getArrayFromDirection', function() {
+    it('should return all board square data in a given direction', function() {
+
+    });
+  });
+
 });
-var i = 0;
-var i = 0;
